@@ -18,7 +18,7 @@ export default function AppRoutes() {
         <Router history={history}>
             <Switch>
                 <Route
-                    path={constant.ROUTES.ABOUT}
+                    path={constant.ROUTES.WELCOME}
                     component={Demo}
                 />
             </Switch>
