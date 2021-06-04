@@ -1,15 +1,27 @@
 // external dependencies
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from "react-bootstrap";
+import { useDispatch, useSelector } from 'react-redux';
 
 import UserList from './UserList';
 import AddUser from './AddUser';
+import * as userAction from '../user.actions';
+import * as userReducers from '../user.reducers';
 
 /**
  * Component that renders routes for user module.
  */
 export default function UserContainer() {
     const [showAddUser, setShowAddUser] = useState(false);
+
+    const dispatch = useDispatch();
+    const users = useSelector(userReducers.selectAllUser);
+
+
+    // Effect to fetch recruiter information.
+    useEffect(() => {
+        dispatch(userAction.fetchUserList());
+    }, [dispatch]);
 
     return (
         <Container fluid>
@@ -18,12 +30,7 @@ export default function UserContainer() {
                     {showAddUser ?
                         <AddUser onCancel={() => setShowAddUser(false)} /> :
                         <UserList
-                            users={
-                                [
-                                    { id: 1, name: "Avinash" },
-                                    { id: 2, name: "Mohok" }
-                                ]
-                            }
+                            users={users}
                             onAddUserClick={() => setShowAddUser(true)} />}
                 </Col>
             </Row>

@@ -30,7 +30,7 @@ export function fetchRecruitersInformationEpic(action$, store$, deps) {
         .pipe(
           map((response) => {
             return userAction.fetchUserListFulfilled(
-              response.data
+              response
             );
           }),
           catchError((error) =>

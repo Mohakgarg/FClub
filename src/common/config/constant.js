@@ -34,7 +34,7 @@ export const API_METHODS = {
     DELETE: 'DELETE'
 };
 
-export const BASE_PATH = "http://localhost:3000/";
+export const BASE_PATH = "http://localhost:3001";
 
 /**
  * Constants for API endpoints.
