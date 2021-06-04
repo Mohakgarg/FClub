@@ -5,7 +5,7 @@ import { fromFetch } from 'rxjs/fetch';
 
 // internal dependencies
 import * as constant from '../../config/constant';
-import * as error from 'common/utils/request/error';
+import * as error from './error';
 
 /**
  * Append generic request headers to the ajax configuration
