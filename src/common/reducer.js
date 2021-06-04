@@ -6,7 +6,6 @@ import { combineReducers } from '@reduxjs/toolkit';
  * that is served to the store.
  */
 const reducer = combineReducers({
-
 });
 
 export default reducer;

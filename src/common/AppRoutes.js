@@ -3,8 +3,8 @@ import React from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
 
 // internal dependencies
-import * as constant from './common/config/constant';
-import history from './common/utils/history';
+import * as constant from './config/constant';
+import history from './utils/history';
 /**
  * Component that renders all routes in the application.
  */
