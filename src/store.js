@@ -11,6 +11,6 @@ const store = configureStore({
     middleware
 });
 
-epicMiddleware.run(rootEpic);
+//epicMiddleware.run(rootEpic);
 
 export default store;
