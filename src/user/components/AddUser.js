@@ -1,16 +1,17 @@
 // external dependencies
 import React from 'react';
 import { Card, Form, Button } from "react-bootstrap";
+import PropTypes from 'prop-types';
 
 /**
  * Component that renders routes for user module.
  */
-export default function AddUser() {
+export default function AddUser(props) {
     return (
         <Card className="mt-5">
             <Card.Header>
                 <div className="d-flex justify-content-between"><h3>Add User</h3>
-                    <Button variant="primary">Close</Button>
+                    <Button variant="primary" onClick={props.onCancel}>Close</Button>
                 </div>
             </Card.Header>
             <Card.Body>
@@ -31,3 +32,11 @@ export default function AddUser() {
         </Card>
     );
 }
+
+AddUser.propTypes = {
+    onCancel: PropTypes.func.isRequired,
+};
+
+AddUser.defaultProps = {
+    onCancel: () => ({})
+};

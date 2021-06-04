@@ -15,7 +15,7 @@ export default function UserList(props) {
         <Fragment>
             <Jumbotron>
                 <div className="d-flex justify-content-between"><h3>User List</h3>
-                    <Button variant="primary">Add User</Button>
+                    <Button variant="primary" onClick={props.onAddUserClick}>Add User</Button>
                 </div>
             </Jumbotron>
             <ListGroup>
@@ -26,9 +26,11 @@ export default function UserList(props) {
 }
 
 UserList.propTypes = {
-    users: PropTypes.array.isRequired
+    users: PropTypes.array.isRequired,
+    onAddUserClick: PropTypes.func.isRequired,
 };
 
 UserList.defaultProps = {
-    users: []
+    users: [],
+    onAddUserClick: () => ({})
 };
