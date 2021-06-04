@@ -8,17 +8,21 @@ import PropTypes from 'prop-types';
  */
 export default function UserListItem(props) {
     return <ListGroup.Item>
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-between" onClick={props.onUserClick}>
             {props.user.name}
-            <Button variant="danger">Delete</Button>
+            <Button variant="danger" onClick={() => props.onUserDeleteClick(props.user)}>Delete</Button>
         </div>
     </ListGroup.Item>;
 }
 
 UserListItem.propTypes = {
-    user: PropTypes.object.isRequired
+    user: PropTypes.object.isRequired,
+    onUserClick: PropTypes.func.isRequired,
+    onUserDeleteClick: PropTypes.func.isRequired,
 };
 
 UserListItem.defaultProps = {
-    user: {}
+    user: {},
+    onUserClick: () => ({}),
+    onUserDeleteClick: () => ({})
 };

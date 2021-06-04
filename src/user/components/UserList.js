@@ -11,6 +11,9 @@ import UserListItem from './UserListItem';
  * Component that renders routes for user module.
  */
 export default function UserList(props) {
+    function handleUserDelete(user) {
+
+    }
     return (
         <Fragment>
             <Jumbotron>
@@ -19,7 +22,7 @@ export default function UserList(props) {
                 </div>
             </Jumbotron>
             <ListGroup>
-                {props.users.map((user, idx) => <UserListItem key={idx} user={user} />)}
+                {props.users.map((user, idx) => <UserListItem key={idx} user={user} onUserDeleteClick={handleUserDelete} />)}
             </ListGroup>
         </Fragment>
     )
