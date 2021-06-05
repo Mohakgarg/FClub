@@ -19,12 +19,12 @@ export default function AppRoutes() {
             <Switch>
                 <Route
                     exact
-                    path={constant.ROUTES.USER_LIST}
+                    path={'/'}
                     component={UsersList}
                 />
                 <Route
                     exact
-                    path={constant.ROUTES.USER_ADD}
+                    path={'/add'}
                     component={AddUser}
                 />
             </Switch>
