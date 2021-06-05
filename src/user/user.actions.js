@@ -51,3 +51,26 @@ export const addUserFailed = createAction(
 export const noop = createAction(
   '[Noop] No Action'
 );
+
+/**
+ * Action to add user.
+ */
+export const deleteUser = createAction(
+  '[Delete User] Delete User'
+);
+
+/**
+ * Action to response when addUserFulfilled action is fulfilled
+ */
+export const deleteUserFulfilled = createAction(
+  '[Delete User] Delete User Fulfilled'
+
+);
+
+/**
+ * Action to response when addUserFailed action is failed.
+ */
+export const deleteUserFailed = createAction(
+  '[Delete User] Delete User Failed'
+);
+

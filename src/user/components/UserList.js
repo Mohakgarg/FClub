@@ -3,17 +3,22 @@ import React, { useEffect, Fragment } from 'react';
 import { ListGroup } from "react-bootstrap";
 import PropTypes from 'prop-types';
 import { Jumbotron, Button } from "react-bootstrap";
+import { useDispatch } from 'react-redux';
 
 // internal dependencies
+import * as userAction from '../user.actions';
 import UserListItem from './UserListItem';
 
 /**
  * Component that renders routes for user module.
  */
 export default function UserList(props) {
-    function handleUserDelete(user) {
+    const dispatch = useDispatch();
 
+    function handleUserDelete(user) {
+        dispatch(userAction.deleteUser(user._id));
     }
+
     return (
         <Fragment>
             <Jumbotron>

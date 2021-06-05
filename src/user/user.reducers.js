@@ -11,7 +11,12 @@ const userEntityAdapter = createEntityAdapter({
 });
 
 const userInitialState = userEntityAdapter.getInitialState({
-  isFetching: false
+  isFetching: false,
+  deleteUserInfo: {
+    isUserDeletingInProcess: false,
+    error: null,
+    details: null
+  }
 });
 
 export const userReducers = {};
@@ -44,6 +49,62 @@ userReducers[userAction.fetchUserListFulfilled] = function (
  */
 userReducers[userAction.fetchUserListFailed] = function (state) {
   state.isFetching = false;
+};
+
+/**
+ * Reducer that gets called when fetchCompanies action is dispatched.
+ * @param {Object} state The company state.
+ */
+userReducers[userAction.addUser] = function (state) {
+  state.isFetching = true;
+};
+
+/**
+ * Reducer to store all the companies.
+ * @param {Object} state The company state.
+ * @param {Object} action The fetchCompanyFulfilled action.
+ */
+userReducers[userAction.addUserFulfilled] = function (
+  state,
+  action
+) {
+  state.isFetching = false;
+};
+
+/**
+ * Reducer that gets called fetchCompanyFailed action is dispatched
+ * @param {Object} state The company state.
+ */
+userReducers[userAction.addUserFailed] = function (state) {
+  state.isFetching = false;
+};
+
+/**
+ * Reducer that gets called when fetchCompanies action is dispatched.
+ * @param {Object} state The company state.
+ */
+userReducers[userAction.deleteUser] = function (state) {
+  state.deleteUserInfo.isUserDeletingInProcess = true;
+};
+
+/**
+ * Reducer to store all the companies.
+ * @param {Object} state The company state.
+ * @param {Object} action The fetchCompanyFulfilled action.
+ */
+userReducers[userAction.deleteUserFulfilled] = function (
+  state,
+  action
+) {
+  state.deleteUserInfo.isUserDeletingInProcess = false;
+};
+
+/**
+ * Reducer that gets called fetchCompanyFailed action is dispatched
+ * @param {Object} state The company state.
+ */
+userReducers[userAction.deleteUserFailed] = function (state) {
+  state.deleteUserInfo.isUserDeletingInProcess = false;
 };
 
 /**

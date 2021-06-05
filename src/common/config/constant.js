@@ -41,5 +41,6 @@ export const BASE_PATH = "http://localhost:3001";
  * Constants for API endpoints.
  */
 export const API_ENDPOINTS = {
-    USERS: `${BASE_PATH}/users`
+    USERS: `${BASE_PATH}/users`,
+    USERS_ID: `${BASE_PATH}/users/:id`
 }

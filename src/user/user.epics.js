@@ -87,3 +87,53 @@ export function addUserFulfilledEpic(action$, _, deps) {
     })
   );
 }
+
+
+/**
+ * Epic to fetch recruiters information.
+ * @param {Object} action$ The recruiter management action stream.
+ * @param {Object} store$ The redux store stream.
+ * @param {Object} deps The epic dependencies
+ */
+export function deleteUserEpic(action$, _, deps) {
+  return action$.pipe(
+    ofType(userAction.deleteUser),
+    mergeMap((data) => {
+      const endpoint = requestUrlBuilder.constructApiEndpoint(
+        constant.API_ENDPOINTS.USERS_ID, {
+        pathParams: {
+          id: data.payload
+        }
+      }
+      );
+      return deps
+        .ajax$(endpoint, {
+          method: constant.API_METHODS.DELETE
+        })
+        .pipe(
+          map((response) => {
+            return userAction.deleteUserFulfilled(
+              response
+            );
+          }),
+          catchError((error) =>
+            of(userAction.deleteUserFailed(error))
+          )
+        );
+    })
+  );
+}
+
+/**
+ * Epic to fetch recruiters information.
+ * @param {Object} action$ The recruiter management action stream.
+ * @param {Object} deps The epic dependencies
+ */
+export function deleteUserFulfilledEpic(action$, _, deps) {
+  return action$.pipe(
+    ofType(userAction.deleteUserFulfilled),
+    mergeMap(() => {
+      return of(userAction.fetchUserList());
+    })
+  );
+}
