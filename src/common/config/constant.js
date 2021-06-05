@@ -20,7 +20,8 @@ export const DEFAULT_REQUEST_HEADERS = {
  * Constants for route paths
  */
 export const ROUTES = {
-    WELCOME: '/',
+    USER_LIST: '/',
+    USER_ADD: '/add',
 };
 
 /**

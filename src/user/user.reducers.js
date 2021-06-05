@@ -11,7 +11,7 @@ const userEntityAdapter = createEntityAdapter({
 });
 
 const userInitialState = userEntityAdapter.getInitialState({
-  isFetching: false,
+  isFetching: false
 });
 
 export const userReducers = {};
@@ -21,9 +21,7 @@ export const userReducers = {};
  * @param {Object} state The company state.
  */
 userReducers[userAction.fetchUserList] = function (state) {
-  if (state.invalidateCache) {
-    state.isFetching = true;
-  }
+  state.isFetching = true;
 };
 
 /**

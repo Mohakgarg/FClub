@@ -21,3 +21,33 @@ export const fetchUserListFulfilled = createAction(
 export const fetchUserListFailed = createAction(
   '[Users List] Fetch Users List Failed'
 );
+
+
+/**
+ * Action to add user.
+ */
+export const addUser = createAction(
+  '[Add User] Add User'
+);
+
+/**
+ * Action to response when addUserFulfilled action is fulfilled
+ */
+export const addUserFulfilled = createAction(
+  '[Add User] Add User Fulfilled'
+
+);
+
+/**
+ * Action to response when addUserFailed action is failed.
+ */
+export const addUserFailed = createAction(
+  '[Add User] Add User Failed'
+);
+
+/**
+ * Action to response when addUserFailed action is failed.
+ */
+export const noop = createAction(
+  '[Noop] No Action'
+);

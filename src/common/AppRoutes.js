@@ -6,7 +6,8 @@ import { Router, Switch, Route } from 'react-router-dom';
 import * as constant from './config/constant';
 import history from './utils/history';
 
-import Users from '../user/index';
+import UsersList from '../user/index';
+import AddUser from '../user/components/AddUser';
 
 
 /**
@@ -17,8 +18,14 @@ export default function AppRoutes() {
         <Router history={history}>
             <Switch>
                 <Route
-                    path={constant.ROUTES.WELCOME}
-                    component={Users}
+                    exact
+                    path={constant.ROUTES.USER_LIST}
+                    component={UsersList}
+                />
+                <Route
+                    exact
+                    path={constant.ROUTES.USER_ADD}
+                    component={AddUser}
                 />
             </Switch>
         </Router>

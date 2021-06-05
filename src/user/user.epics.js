@@ -40,3 +40,50 @@ export function fetchRecruitersInformationEpic(action$, store$, deps) {
     })
   );
 }
+
+/**
+ * Epic to fetch recruiters information.
+ * @param {Object} action$ The recruiter management action stream.
+ * @param {Object} deps The epic dependencies
+ */
+export function addUserEpic(action$, _, deps) {
+  return action$.pipe(
+    ofType(userAction.addUser),
+    mergeMap((data) => {
+      //  const store = data[1];
+      const endpoint = requestUrlBuilder.constructApiEndpoint(
+        constant.API_ENDPOINTS.USERS
+      );
+      return deps
+        .ajax$(endpoint, {
+          method: constant.API_METHODS.POST,
+          body: JSON.stringify(data.payload)
+        })
+        .pipe(
+          map((response) => {
+            return userAction.addUserFulfilled(
+              response
+            );
+          }),
+          catchError((error) =>
+            of(userAction.addUserFailed(error))
+          )
+        );
+    })
+  );
+}
+
+/**
+ * Epic to fetch recruiters information.
+ * @param {Object} action$ The recruiter management action stream.
+ * @param {Object} deps The epic dependencies
+ */
+export function addUserFulfilledEpic(action$, _, deps) {
+  return action$.pipe(
+    ofType(userAction.addUserFulfilled),
+    mergeMap((data) => {
+      deps.history.push('/');
+      return of(userAction.noop());
+    })
+  );
+}

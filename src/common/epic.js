@@ -5,7 +5,9 @@ import * as userEpics from '../user/user.epics';
 
 
 const rootEpic = combineEpics(
-    userEpics.fetchRecruitersInformationEpic
+    userEpics.fetchRecruitersInformationEpic,
+    userEpics.addUserEpic,
+    userEpics.addUserFulfilledEpic
 );
 
 export default rootEpic;
