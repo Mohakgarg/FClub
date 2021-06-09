@@ -9,7 +9,9 @@ const rootEpic = combineEpics(
     userEpics.addUserEpic,
     userEpics.addUserFulfilledEpic,
     userEpics.deleteUserEpic,
-    userEpics.deleteUserFulfilledEpic
+    userEpics.deleteUserFulfilledEpic,
+    userEpics.editUserEpic,
+    userEpics.editUserFulfilledEpic
 );
 
 export default rootEpic;

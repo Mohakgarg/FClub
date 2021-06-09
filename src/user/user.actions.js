@@ -53,14 +53,14 @@ export const noop = createAction(
 );
 
 /**
- * Action to add user.
+ * Action to delete user.
  */
 export const deleteUser = createAction(
   '[Delete User] Delete User'
 );
 
 /**
- * Action to response when addUserFulfilled action is fulfilled
+ * Action to response when deleteUserFulfilled action is fulfilled
  */
 export const deleteUserFulfilled = createAction(
   '[Delete User] Delete User Fulfilled'
@@ -68,9 +68,30 @@ export const deleteUserFulfilled = createAction(
 );
 
 /**
- * Action to response when addUserFailed action is failed.
+ * Action to response when deleteUserFailed action is failed.
  */
 export const deleteUserFailed = createAction(
   '[Delete User] Delete User Failed'
 );
 
+/**
+ * Action to edit user.
+ */
+export const editUser = createAction(
+  '[Edit User] Edit User'
+);
+
+/**
+ * Action to response when deleteUserFulfilled action is fulfilled
+ */
+export const editUserFulfilled = createAction(
+  '[Edit User] Edit User Fulfilled'
+
+);
+
+/**
+ * Action to response when deleteUserFailed action is failed.
+ */
+export const editUserFailed = createAction(
+  '[Edit User] Edit User Failed'
+);

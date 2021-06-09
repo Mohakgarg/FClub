@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 // internal dependencies
 import * as userAction from '../user.actions';
 import UserListItem from './UserListItem';
+import history from '../../common/utils/history';
 
 /**
  * Component that renders routes for user module.
@@ -19,6 +20,10 @@ export default function UserList(props) {
         dispatch(userAction.deleteUser(user._id));
     }
 
+    function handleUserClick(user) {
+        history.push(`/edit/${user._id}`);
+    }
+
     return (
         <Fragment>
             <Jumbotron>
@@ -27,7 +32,7 @@ export default function UserList(props) {
                 </div>
             </Jumbotron>
             <ListGroup>
-                {props.users.map((user, idx) => <UserListItem key={idx} user={user} onUserDeleteClick={handleUserDelete} />)}
+                {props.users.map((user, idx) => <UserListItem key={idx} user={user} onUserDeleteClick={handleUserDelete} onUserClick={handleUserClick} />)}
             </ListGroup>
         </Fragment>
     )

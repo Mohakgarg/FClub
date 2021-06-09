@@ -27,6 +27,11 @@ export default function AppRoutes() {
                     path={'/add'}
                     component={AddUser}
                 />
+                <Route
+                    exact
+                    path={'/edit/:id'}
+                    component={AddUser}
+                />
             </Switch>
         </Router>
     );

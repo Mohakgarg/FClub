@@ -22,6 +22,7 @@ export const DEFAULT_REQUEST_HEADERS = {
 export const ROUTES = {
     USER_LIST: '/',
     USER_ADD: '/add',
+    USER_EDIT: '/edit',
 };
 
 /**

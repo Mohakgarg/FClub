@@ -16,6 +16,11 @@ const userInitialState = userEntityAdapter.getInitialState({
     isUserDeletingInProcess: false,
     error: null,
     details: null
+  },
+  editUserInfo: {
+    isUserEditingInProcess: false,
+    error: null,
+    details: null
   }
 });
 
@@ -51,6 +56,8 @@ userReducers[userAction.fetchUserListFailed] = function (state) {
   state.isFetching = false;
 };
 
+
+
 /**
  * Reducer that gets called when fetchCompanies action is dispatched.
  * @param {Object} state The company state.
@@ -78,6 +85,8 @@ userReducers[userAction.addUserFulfilled] = function (
 userReducers[userAction.addUserFailed] = function (state) {
   state.isFetching = false;
 };
+
+
 
 /**
  * Reducer that gets called when fetchCompanies action is dispatched.
@@ -107,11 +116,43 @@ userReducers[userAction.deleteUserFailed] = function (state) {
   state.deleteUserInfo.isUserDeletingInProcess = false;
 };
 
+
+/**
+ * Reducer that gets called when fetchCompanies action is dispatched.
+ * @param {Object} state The company state.
+ */
+userReducers[userAction.editUser] = function (state) {
+  state.editUserInfo.isUserEditingInProcess = true;
+};
+
+/**
+ * Reducer to store all the companies.
+ * @param {Object} state The company state.
+ * @param {Object} action The fetchCompanyFulfilled action.
+ */
+userReducers[userAction.editUserFulfilled] = function (
+  state,
+  action
+) {
+  state.editUserInfo.isUserEditingInProcess = false;
+};
+
+/**
+ * Reducer that gets called fetchCompanyFailed action is dispatched
+ * @param {Object} state The company state.
+ */
+userReducers[userAction.editUserFailed] = function (state) {
+  state.editUserInfo.isUserEditingInProcess = false;
+};
+
+
+
 /**
  * Selectors to expose to components.
  */
 export const {
-  selectAll: selectAllUser
+  selectAll: selectAllUser,
+  selectById: getUserById
 } = userEntityAdapter.getSelectors((state) => state.user);
 
 export default createReducer(userInitialState, userReducers);
